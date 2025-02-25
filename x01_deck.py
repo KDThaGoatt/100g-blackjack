@@ -11,6 +11,10 @@ def createDeck():
   suits = ['C','D','H','S']
   deck = []
   
+  for suit in suits:
+    for rank in ranks:
+      deck.append(rank + suit)
+
   return deck
   
   '''
