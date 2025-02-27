@@ -6,6 +6,8 @@ the cards should be denoted with a number or A, J, Q, K, T (for ace, jack, queen
 as well as a suit
 """
 
+import random
+
 def createDeck():
   ranks = ['2','3','4','5','6','7','8','9','T','J','Q','K','A']
   suits = ['C','D','H','S']
@@ -14,6 +16,8 @@ def createDeck():
   for suit in suits:
     for rank in ranks:
       deck.append(rank + suit)
+
+  random.shuffle(deck)
 
   return deck
   

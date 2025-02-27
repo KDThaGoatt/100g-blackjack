@@ -11,43 +11,54 @@ def value(hand):
   may return a list if the hand contains an Ace
   eg:
   '''
-  endVal = []
+  endVal = 0
+  ace_count = 0
 
-  for i in range(11):
-    
-    if hand [i][0] == '2':
+  for card in hand:
+    if card[0] == '2':
       cardVal = 2
-    elif hand [i][0] == '3':
+    elif card[0] == '3':
       cardVal = 3
-    elif hand [i][0] == '4':
-      cardVal = 4
-    elif hand [i][0] == '5':
+    elif card[0] == '4':
+        cardVal = 4
+    elif card[0] == '5':
       cardVal = 5
-    elif hand [i][0] == '6':
+    elif card[0] == '6':
       cardVal = 6
-    elif hand [i][0] == '7':
+    elif card[0] == '7':
       cardVal = 7
-    elif hand [i][0] == '8':
+    elif card[0] == '8':
       cardVal = 8
-    elif hand [i][0] == '9':
+    elif card[0] == '9':
       cardVal = 9
-    elif hand [i][0] == 'T':
+    elif card[0] == 'T':
       cardVal = 10
-    elif hand [i][0] == 'J':
+    elif card[0] == 'J':
       cardVal = 10
-    elif hand [i][0] == 'Q':
+    elif card[0] == 'Q':
       cardVal = 10
-    elif hand [i][0] == 'K':
+    elif card[0] == 'K':
       cardVal = 10
-    elif hand[i][0] == 'A':
-      if endVal >= 11:
-        cardVal = 1
-      else:
-        cardVal = 11
+    elif card[0] == 'A':
+      ace_count += 1
+      cardVal = 11  # Initially consider Ace as 11
+    else:
+      print("Invalid card")
+      continue
 
-    endVal = endVal + cardVal
+    endVal += cardVal
+
+    # Adjust for Aces if total value exceeds 21
+  while endVal > 21 and ace_count > 0:
+    endVal -= 10
+    ace_count -= 1
+
+  # Return a list if there are Aces in the hand
+  if ace_count > 0:
+      return [endVal - (10 * ace_count), endVal]  # Return both possible values
 
   return endVal
+
 
 
 def main():
@@ -56,5 +67,5 @@ def main():
   assert value(['3D','8H']) == 11
   assert value(['KC','6S','QD']) == 26
 
-if __name__ == "__name__":
+if __name__ == "__main__":
   main()

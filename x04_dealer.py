@@ -31,10 +31,10 @@ def dealer(deck):
   dealer = []
   score = 0
 
-  while score > 16:
-    card = deck[random.randint(len(deck+1))]
-    dealer = dealer.append(deck[random.randint(len(deck+1))])
-    score = value(dealer)
+  while score < 16:
+    card = deck[0]
+    dealer = dealer.append(card)
+    score += value(card)
     deck = deck.remove(card)
   
   return [dealer, score, deck]
@@ -45,3 +45,5 @@ def main():
   assert dealer(deck) == [['3C', '3S', '8S', '3D'], 17, run1[2] ]
   run2 = dealer( run1[2] )
   assert dealer(run1[2]) == (['AC', '9H'], 20, run2[2] )
+
+main()
