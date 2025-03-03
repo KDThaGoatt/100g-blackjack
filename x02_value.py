@@ -15,6 +15,7 @@ def value(hand):
   ace_count = 0
 
   for card in hand:
+    cardVal = 0
     if card[0] == '2':
       cardVal = 2
     elif card[0] == '3':
@@ -43,8 +44,8 @@ def value(hand):
       ace_count += 1
       cardVal = 11  # Initially consider Ace as 11
     else:
-      print("Invalid card")
-      continue
+      if __name__ == '__main__':
+        print("Invalid Card")
 
     endVal += cardVal
 
