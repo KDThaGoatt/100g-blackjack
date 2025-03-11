@@ -45,14 +45,14 @@ while contBool == True:
                     contBool = True
                 else:
                     contBool = False
-            if playerhand > dealerHand[1] and playerhand == 21:
+            elif playerhand > dealerHand[1] and playerhand == 21:
                 print(f"\033[0;32mBlackjack!, you win!\033[0m")
                 cont = input("Keep playing? Y/N: ")
                 if cont == "Y":
                     contBool = True
                 else:
                     contBool = False
-            if playerhand < dealerHand[1] and dealerHand[1] == 21:
+            elif playerhand < dealerHand[1] and dealerHand[1] == 21:
                 print(f"\033[0;31mDealer got Blackjack, you lose.\033[0m")
                 cont = input("Keep playing? Y/N: ")
                 if cont == "Y":

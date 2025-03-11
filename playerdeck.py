@@ -12,21 +12,23 @@ def player(deck):
         for i in range(10):
             while hitBool == True:
                 card = deck[i]
-                if isinstance(card, list) and aceBust == False:
+                print(card)
+                if card[0] == "A" and aceBust == False:
                     score += 11
                     aceCount += 1
-                elif isinstance(card, list) and aceBust == True:
+                elif card[0] == "A" and aceBust == True:
                     score += 1
                 else:
                     score += value(card)
+
+                
                 if score > 21 and aceCount > 0:
                     score -= (10*aceCount)
                     aceBust = True
                 if score > 21:
-                    return[score]
-                print(type(score))
+                    return score
                 deck.pop(i)
                 hit = input(f"Your score is now {score}, would you like to hit again? Y/N: ")
                 if hit != "Y" and hit != "y":
                     hitBool = False
-                    return [score]
+                    return score
