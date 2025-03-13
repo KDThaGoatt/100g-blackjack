@@ -25,7 +25,10 @@ def player(deck):
                 if score > 21 and aceCount > 0:
                     score -= (10*aceCount)
                     aceBust = True
+                    aceCount = 0
                 if score > 21:
+                    return score
+                if score == 21:
                     return score
                 deck.pop(i)
                 hit = input(f"Your score is now {score}, would you like to hit again? Y/N: ")

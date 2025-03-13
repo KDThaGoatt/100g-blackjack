@@ -16,7 +16,7 @@ while contBool == True:
     if busts(dealerHand[1]) == True:
         print("\033[0;32mDealer busted! You win!\033[0m")
         cont = input("Keep playing? Y/N: ")
-        if cont == "Y":
+        if cont == "Y" or cont =="y":
             contBool = True
         else:
             contBool = False
@@ -33,7 +33,7 @@ while contBool == True:
         if busts(playerhand) == True:
             print(f"\033[0;31mBusted, you lose. Your score was {playerhand}\033[0m")
             cont = input("Keep playing? Y/N: ")
-            if cont == "Y":
+            if cont == "Y" or cont =="y":
                 contBool = True
             else:
                 contBool = False
@@ -41,35 +41,35 @@ while contBool == True:
             if playerhand > dealerHand[1] and playerhand != 21:
                 print(f"\033[0;32mYou have {playerhand}, dealer has {dealerHand[1]}, you win!\033[0m")
                 cont = input("Keep playing? Y/N: ")
-                if cont == "Y":
+                if cont == "Y" or cont =="y":
                     contBool = True
                 else:
                     contBool = False
             elif playerhand > dealerHand[1] and playerhand == 21:
                 print(f"\033[0;32mBlackjack!, you win!\033[0m")
                 cont = input("Keep playing? Y/N: ")
-                if cont == "Y":
+                if cont == "Y" or cont =="y":
                     contBool = True
                 else:
                     contBool = False
             elif playerhand < dealerHand[1] and dealerHand[1] == 21:
                 print(f"\033[0;31mDealer got Blackjack, you lose.\033[0m")
                 cont = input("Keep playing? Y/N: ")
-                if cont == "Y":
+                if cont == "Y" or cont =="y":
                     contBool = True
                 else:
                     contBool = False
             elif playerhand < dealerHand[1]:
                 print(f"\033[0;31mYou have {playerhand}, dealer has {dealerHand[1]}, you lose.\033[0m")
                 cont = input("Keep playing? Y/N: ")
-                if cont == "Y":
+                if cont == "Y" or cont =="y":
                     contBool = True
                 else:
                     contBool = False
             else:
                 print(f"\033[1;33mYou have {playerhand}, dealer also has {dealerHand[1]}, push\033[0m")
                 cont = input("Keep playing? Y/N: ")
-                if cont == "Y":
+                if cont == "Y" or cont =="y":
                     contBool = True
                 else:
                     contBool = False
